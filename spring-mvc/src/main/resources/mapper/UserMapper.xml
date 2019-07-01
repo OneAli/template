@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hl.mapper.UserMapper">
+
+    <!--表名 -->
+    <sql id="table">
+	   t_user
+	</sql>
+
+    <!-- 字段 -->
+    <sql id="field">
+	   id, username, password, name
+	</sql>
+
+    <insert id="insert" parameterType="com.hl.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into <include refid="table"/>
+        (username, password, name)
+        value
+        (#{username}, #{password}, #{name})
+    </insert>
+
+</mapper>
